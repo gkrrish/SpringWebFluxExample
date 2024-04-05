@@ -1,0 +1,15 @@
+Why is Functional Programming Important in Asynchronous Programming like WebFlux or JavaScript?
+=================================================================================================
+
+In object-oriented programming, we have the guarantee that we can use the methods of an object later. 
+However, in the case of functional programming, operations are mostly event-based and short-lived. Therefore, 
+it's unnecessary to reduce the complexity of the programming and to reduce the heavy-weight, short-lived systems that arise. 
+Functional programming provides a solution for these scenarios, especially when logic needs to be implemented at the event level only.
+
+In summary, while object-oriented programming can also be used in asynchronous systems, 
+functional programming brings additional benefits such as simpler concurrency control, improved error handling, and better support for event-driven paradigms. 
+These advantages make functional programming a popular choice for building robust and scalable asynchronous systems like those powered by WebFlux or JavaScript
+
+
+
+general java related things : https://pankaj02.medium.com/
