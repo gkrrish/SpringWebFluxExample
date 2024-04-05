@@ -13,3 +13,87 @@ These advantages make functional programming a popular choice for building robus
 
 
 general java related things : https://pankaj02.medium.com/
+
+---------------------------------------------------------------------------------------------------------------------------
+In The market we have the RxJava also for Reactive Programming, which is used in any where or part of the application,
+like in service layer for some components only if we want to make the Reactive Asynchronous nature then we can with RxJava, 
+not only for service layer where ever we need we can use it. 
+it is mainly suitable for the Monolithic and Android apps its good, but in the case of WEB-Based applications using the 
+Spring WebFlux is good choice, it provides the seamless integration with Http. in micro-service side server-side event-driven applications
+
+https://www.geeksforgeeks.org/java-spring-webflux-vs-rxjava/
+----------------------------------------------------------------------------------------------------------------------------
+
+
+Scenario:
+Suppose we're developing an e-commerce platform that needs to handle a large number of concurrent users, process transactions quickly, and maintain high availability.
+
+Synchronous System:
+
+In a synchronous system architecture, each incoming HTTP request typically requires a dedicated thread to handle it.
+As the number of concurrent users increases, more threads are created, which can lead to high memory consumption and increased hardware requirements.
+Scaling a synchronous system vertically (adding more powerful servers) can quickly become expensive and may not be a sustainable solution for handling high loads.
+Additionally, synchronous systems might struggle to handle long-lived connections efficiently, such as those required for real-time updates or WebSocket communication.
+Reactive System:
+
+In a reactive system architecture, requests are handled asynchronously using non-blocking I/O and reactive programming techniques.
+Reactive systems typically require fewer threads to handle the same number of concurrent requests compared to synchronous systems.
+This reduced thread consumption leads to lower memory usage and allows the system to scale more efficiently, making better use of available hardware resources.
+Reactive systems are better equipped to handle long-lived connections and streaming data, which can be crucial for real-time updates, event-driven architectures, and microservices communication.
+While setting up a reactive system may require some initial investment in terms of infrastructure and tooling (e.g., learning curve for reactive programming, selecting appropriate reactive libraries or frameworks), the long-term benefits in terms of scalability, performance, and resource utilization can outweigh these upfront costs.
+Example:
+Let's assume that our e-commerce platform experiences a sudden surge in traffic due to a promotional campaign. With a synchronous system, scaling to handle the increased load might involve upgrading to more powerful servers, which can be costly and may not be able to keep up with the growing demand efficiently.
+
+On the other hand, if we have a reactive system in place, we can scale horizontally by adding more instances of our application across multiple servers or cloud instances. This allows us to handle the increased traffic more effectively and efficiently distribute the load across multiple nodes without incurring significant infrastructure costs.
+
+In summary, while there may be some upfront costs associated with setting up a reactive system, the long-term benefits in terms of scalability, performance, and resource utilization can make it a more cost-effective solution, especially for applications requiring high concurrency and real-time responsiveness.
+
+
+even in the synchronous applications also we can increase the instance count right?
+------------------------------------------------------------------------------------
+Yes, in synchronous applications, you can increase the instance count by deploying multiple instances of your application across multiple servers or cloud instances to handle increased traffic. This approach is known as horizontal scaling or scaling out.
+
+However, there are some differences in how synchronous and reactive systems handle scalability and resource utilization:
+
+Thread Consumption: In synchronous systems, each incoming request typically consumes a dedicated thread until the request is processed. As the number of concurrent requests increases, more threads are created, leading to higher memory consumption and potentially limiting scalability. With horizontal scaling, you can distribute the load across multiple instances, but each instance still requires a significant amount of memory to handle concurrent requests.
+
+Blocking Operations: Synchronous systems may suffer from thread contention and resource contention, especially when dealing with blocking operations such as I/O operations or long-running computations. This can lead to degraded performance and increased response times under heavy load.
+
+Resource Utilization: Reactive systems, on the other hand, use non-blocking I/O and asynchronous processing to handle requests efficiently with fewer threads. This allows reactive systems to scale more effectively and make better use of available hardware resources. With horizontal scaling, you can distribute the workload across multiple instances while minimizing memory consumption and maximizing throughput.
+
+Long-lived Connections: Reactive systems are well-suited for handling long-lived connections and streaming data, making them suitable for real-time applications and event-driven architectures. Synchronous systems may struggle to efficiently handle long-lived connections and may require additional resources to maintain them.
+
+In summary, while both synchronous and reactive systems can benefit from horizontal scaling to handle increased traffic, reactive systems typically offer better scalability, resource utilization, and performance under heavy load due to their non-blocking nature and asynchronous processing model. Horizontal scaling in reactive systems allows you to handle higher concurrency and maintain responsiveness without incurring significant infrastructure costs.
+
+---------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+https://reflectoring.io/getting-started-with-spring-webflux/
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
