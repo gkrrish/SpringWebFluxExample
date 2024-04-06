@@ -11,7 +11,12 @@ public class SpringWebFluxExampleApplication {
 		System.out.println("http://localhost:9090");
 		String listOfEndPoints ="http://localhost:8287/actuator/prometheus"+
 								"http://localhost:8287/actuator/health"+
-								"http://localhost:8287/actuator";
+								"http://localhost:8287/actuator"+
+								"http://localhost:9090/metrics"+
+								"use this for Grafana integration : http://172.17.0.4:9090";
+		
+		System.out.println(listOfEndPoints);
+		
 	}
 
 }
