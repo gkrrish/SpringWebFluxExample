@@ -11,22 +11,18 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-//@Transactional
+@Transactional
 public class EmployeeUserService {
 
-	private final EmployeeUserRepository employeeUserRepository;
-
-    @Autowired
-    public EmployeeUserService(EmployeeUserRepository employeeUserRepository) {
-        this.employeeUserRepository = employeeUserRepository;
-    }
+	@Autowired
+	private EmployeeUserRepository employeeUserRepository;
 
 	public Mono<EmployeeUser> createEmployeeUser(EmployeeUser user) {
 		return employeeUserRepository.save(user);
 	}
-/*
+
 	public Flux<EmployeeUser> getAllUsers() {
-		return employeeUserRepository.findAll();
+		 return employeeUserRepository.findAll().thenMany(employeeUserRepository.findAll());
 	}
 
 	public Mono<EmployeeUser> findById(int userId) {
@@ -48,5 +44,5 @@ public class EmployeeUserService {
 
 	public Flux<EmployeeUser> fetchUsers(String name) {
 		return employeeUserRepository.findByNameLike(name);
-	}*/
+	}
 }

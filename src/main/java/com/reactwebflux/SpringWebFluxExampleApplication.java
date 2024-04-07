@@ -11,6 +11,7 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @EnableWebFlux
 //@EnableR2dbcRepositories
 @ComponentScan(basePackages = {"com.reactwebflux", "com.reactwebflux.repository"})
+@EnableR2dbcRepositories(considerNestedRepositories = true)
 @SpringBootApplication
 public class SpringWebFluxExampleApplication {
 

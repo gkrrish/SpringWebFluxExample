@@ -53,12 +53,16 @@
 		</dependency>
 		<!-- Key points:
 
-		No JPA Annotations: The code intentionally avoids JPA annotations like @Entity or @Column as those are specific to JPA, not R2DBC.
-			@Table Annotation: The @Table annotation from Spring Data R2DBC maps the entity to the corresponding database table.
+		No JPA Annotations: The code intentionally avoids JPA annotations like @Entity
+		or @Column as those are specific to JPA, not R2DBC.
+			@Table Annotation: The @Table annotation from Spring Data R2DBC maps the entity
+		to the corresponding database table.
 		Id Annotation: The @Id annotation marks the primary key field for the entity.
 	Remember:
-		Include the spring-boot-starter-data-r2dbc dependency in your pom.xml for R2DBC support.
-		Configure the R2DBC connection for your specific database in your Spring Boot application properties.
+		Include the spring-boot-starter-data-r2dbc dependency in your pom.xml for R2DBC
+		support.
+		Configure the R2DBC connection for your specific database in your Spring Boot
+		application properties.
 		
 		If you include Spring Data JPA, we will get a Bean creation exception-->
 		<!--<dependency>
@@ -68,7 +72,7 @@
 
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
-			<artifactId>spring-cloud-starter-sleuth</artifactId>
+			<artifactId>spring-cloud-sleuth-zipkin</artifactId>
 			<version>3.0.3</version>
 		</dependency>
 		<dependency>

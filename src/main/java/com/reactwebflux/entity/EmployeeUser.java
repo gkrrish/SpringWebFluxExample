@@ -4,9 +4,13 @@ import org.springframework.data.annotation.Id;
 import org.springframework.data.relational.core.mapping.Column;
 import org.springframework.data.relational.core.mapping.Table;
 
+import io.swagger.v3.oas.annotations.media.Schema;
+
 @Table("employee_user")
 public class EmployeeUser {
-
+	@Schema(hidden = true) // because, if we show id in the postman/swagger, makes confusion because r2db,
+							// if he see id in the request body, he thinks, id validation do, though already
+							// id there, so gives the error and wont save the record
 	@Id
 	private int id;
 
@@ -71,7 +75,6 @@ public class EmployeeUser {
 	public void setChange(int change) {
 		this.change = change;
 	}
-	
 
 	@Override
 	public String toString() {
