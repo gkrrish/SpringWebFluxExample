@@ -6,3 +6,7 @@ scrape_configs:
     metrics_path: '/actuator/prometheus'
     static_configs:
       - targets: ['localhost:8287']
+      
+#Actually Promotheus Embeded server is not there, so we have to run the server indpendently. 
+#Hence, Running the Docker Image, Docker Image voulme is there in my local system. there we need add this file. for 
+# more see on Notes folder in this app, I added the screenshots

@@ -43,14 +43,20 @@ import reactor.core.publisher.Mono;
 @RequestMapping("/react")
 public class EmployeeUserController {
 	
+	private final EmployeeUserService employeeUserService;
+
+	@Autowired
+	public EmployeeUserController(EmployeeUserService employeeUserService) {
+		this.employeeUserService = employeeUserService;
+	}
+	
 	@GetMapping("/test")
 	public String test() {
 		return "Test";
 	}
 
 	
-	@Autowired
-	private EmployeeUserService employeeUserService;
+	
 
 	@PostMapping
 	@ResponseStatus(HttpStatus.CREATED)

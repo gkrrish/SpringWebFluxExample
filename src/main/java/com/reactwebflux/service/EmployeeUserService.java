@@ -14,8 +14,12 @@ import reactor.core.publisher.Mono;
 //@Transactional
 public class EmployeeUserService {
 
-	@Autowired
-	private EmployeeUserRepository employeeUserRepository;
+	private final EmployeeUserRepository employeeUserRepository;
+
+    @Autowired
+    public EmployeeUserService(EmployeeUserRepository employeeUserRepository) {
+        this.employeeUserRepository = employeeUserRepository;
+    }
 
 	public Mono<EmployeeUser> createEmployeeUser(EmployeeUser user) {
 		return employeeUserRepository.save(user);
