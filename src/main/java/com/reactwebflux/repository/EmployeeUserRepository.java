@@ -8,10 +8,12 @@ import com.reactwebflux.entity.EmployeeUser;
 
 import reactor.core.publisher.Flux;
 
-@Repository
+//@Repository
 public interface EmployeeUserRepository extends ReactiveCrudRepository<EmployeeUser, Integer> {
 
-	@Query("SELECT * FROM employee_user WHERE name LIKE $1 ORDER BY age")
-	Flux<EmployeeUser> findByNameLike(String name);
+	/*
+	 * @Query("SELECT * FROM employee_user WHERE name LIKE $1 ORDER BY age")
+	 * Flux<EmployeeUser> findByNameLike(String name);
+	 */
 
 }
