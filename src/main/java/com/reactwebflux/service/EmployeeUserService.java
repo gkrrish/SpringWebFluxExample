@@ -1,5 +1,6 @@
 package com.reactwebflux.service;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -10,19 +11,16 @@ import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
 
 @Service
-@Transactional
+//@Transactional
 public class EmployeeUserService {
 
+	@Autowired
 	private EmployeeUserRepository employeeUserRepository;
-
-	public EmployeeUserService(EmployeeUserRepository employeeUserRepository) {
-		this.employeeUserRepository = employeeUserRepository;
-	}
 
 	public Mono<EmployeeUser> createEmployeeUser(EmployeeUser user) {
 		return employeeUserRepository.save(user);
 	}
-
+/*
 	public Flux<EmployeeUser> getAllUsers() {
 		return employeeUserRepository.findAll();
 	}
@@ -46,5 +44,5 @@ public class EmployeeUserService {
 
 	public Flux<EmployeeUser> fetchUsers(String name) {
 		return employeeUserRepository.findByNameLike(name);
-	}
+	}*/
 }

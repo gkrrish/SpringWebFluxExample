@@ -1,5 +1,5 @@
 package com.reactwebflux.controller;
-
+/*
 import java.time.Duration;
 import java.util.stream.Stream;
 
@@ -23,12 +23,32 @@ import com.reactwebflux.service.EmployeeUserService;
 
 import reactor.core.publisher.Flux;
 import reactor.core.publisher.Mono;
-import reactor.util.function.Tuple2;
+import reactor.util.function.Tuple2; */
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseStatus;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.reactwebflux.entity.EmployeeUser;
+import com.reactwebflux.service.EmployeeUserService;
+
+import reactor.core.publisher.Mono;
 
 @RestController
-@RequestMapping("\react")
+@RequestMapping("/react")
 public class EmployeeUserController {
+	
+	@GetMapping("/test")
+	public String test() {
+		return "Test";
+	}
 
+	
 	@Autowired
 	private EmployeeUserService employeeUserService;
 
@@ -37,7 +57,7 @@ public class EmployeeUserController {
 	public Mono<EmployeeUser> create(@RequestBody EmployeeUser employeeUser) {
 		return employeeUserService.createEmployeeUser(employeeUser);
 	}
-
+	/*
 	@GetMapping
 	public Flux<EmployeeUser> getAllEmployeeUser() {
 		return employeeUserService.getAllUsers();
@@ -73,5 +93,5 @@ public class EmployeeUserController {
 				.flatMap(user -> Flux
 						.zip(Flux.interval(Duration.ofSeconds(2)), Flux.fromStream(Stream.generate(() -> user)))
 						.map(Tuple2::getT2));
-	}
+	} */
 }
