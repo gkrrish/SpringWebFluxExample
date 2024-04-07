@@ -11,7 +11,7 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @EnableWebFlux
 //@EnableR2dbcRepositories
 @ComponentScan(basePackages = {"com.reactwebflux", "com.reactwebflux.repository"})
-@EnableR2dbcRepositories(considerNestedRepositories = true)
+@EnableR2dbcRepositories(considerNestedRepositories = true)//this I kept for auto-refresh of the database, still it is not working.
 @SpringBootApplication
 public class SpringWebFluxExampleApplication {
 
