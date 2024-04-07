@@ -9,7 +9,7 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 
 @EnableR2dbcAuditing
 @EnableWebFlux
-@EnableR2dbcRepositories
+//@EnableR2dbcRepositories
 @ComponentScan(basePackages = {"com.reactwebflux", "com.reactwebflux.repository"})
 @SpringBootApplication
 public class SpringWebFluxExampleApplication {

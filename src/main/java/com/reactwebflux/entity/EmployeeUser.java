@@ -1,26 +1,22 @@
 package com.reactwebflux.entity;
 
-import java.util.Objects;
+import org.springframework.data.annotation.Id;
+import org.springframework.data.relational.core.mapping.Column;
+import org.springframework.data.relational.core.mapping.Table;
 
-import jakarta.persistence.Column;
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
-
-@Entity
+@Table("employee_user")
 public class EmployeeUser {
+
 	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 
-	@Column(nullable = false)
+	@Column
 	private String name;
 
-	@Column(nullable = false)
+	@Column
 	private String city;
 
-	@Column(unique = true)
+	@Column("mobile_number")
 	private Long mobileNumber;
 
 	@Column
@@ -29,8 +25,7 @@ public class EmployeeUser {
 	public EmployeeUser() {
 	}
 
-	public EmployeeUser(int id, String name, String city, Long mobileNumber, int change) {
-		this.id = id;
+	public EmployeeUser(String name, String city, Long mobileNumber, int change) {
 		this.name = name;
 		this.city = city;
 		this.mobileNumber = mobileNumber;
@@ -41,63 +36,46 @@ public class EmployeeUser {
 		return id;
 	}
 
-	public String getName() {
-		return name;
-	}
-
-	public String getCity() {
-		return city;
-	}
-
-	public Long getMobileNumber() {
-		return mobileNumber;
-	}
-
-	public int getChange() {
-		return change;
-	}
-
 	public void setId(int id) {
 		this.id = id;
+	}
+
+	public String getName() {
+		return name;
 	}
 
 	public void setName(String name) {
 		this.name = name;
 	}
 
+	public String getCity() {
+		return city;
+	}
+
 	public void setCity(String city) {
 		this.city = city;
+	}
+
+	public Long getMobileNumber() {
+		return mobileNumber;
 	}
 
 	public void setMobileNumber(Long mobileNumber) {
 		this.mobileNumber = mobileNumber;
 	}
 
+	public int getChange() {
+		return change;
+	}
+
 	public void setChange(int change) {
 		this.change = change;
 	}
-
-	@Override
-	public int hashCode() {
-		return Objects.hash(change, city, id, mobileNumber, name);
-	}
-
-	@Override
-	public boolean equals(Object obj) {
-		if (this == obj)
-			return true;
-		if (obj == null)
-			return false;
-		if (getClass() != obj.getClass())
-			return false;
-		EmployeeUser other = (EmployeeUser) obj;
-		return change == other.change && Objects.equals(city, other.city) && id == other.id
-				&& Objects.equals(mobileNumber, other.mobileNumber) && Objects.equals(name, other.name);
-	}
+	
 
 	@Override
 	public String toString() {
-		return "EmployeeUser [id=" + id + ", name=" + name + ", city=" + city + ", mobileNumber=" + mobileNumber
-				+ ", change=" + change + "]";
+		return "EmployeeUser{" + "id=" + id + ", name='" + name + '\'' + ", city='" + city + '\'' + ", mobileNumber="
+				+ mobileNumber + ", change=" + change + '}';
 	}
 }

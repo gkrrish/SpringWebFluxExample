@@ -7,7 +7,7 @@
 		<groupId>org.springframework.boot</groupId>
 		<artifactId>spring-boot-starter-parent</artifactId>
 		<version>3.2.4</version>
-		<relativePath /> <!-- lookup parent from repository -->
+		<relativePath />
 	</parent>
 	<groupId>com.reactwebflux</groupId>
 	<artifactId>SpringWebFluxExample</artifactId>
@@ -20,17 +20,11 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter</artifactId>
-		</dependency>
-
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-test</artifactId>
-			<scope>test</scope>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-webflux</artifactId>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
 		</dependency>
 		<!-- Non-Blocking Dependendency for Postgres-->
 		<dependency>
@@ -38,8 +32,13 @@
 			<artifactId>r2dbc-postgresql</artifactId>
 		</dependency>
 		<dependency>
-			<groupId>io.projectreactor</groupId>
-			<artifactId>reactor-test</artifactId>
+			<groupId>org.springdoc</groupId>
+			<artifactId>springdoc-openapi-starter-webflux-ui</artifactId>
+			<version>2.1.0</version>
+		</dependency>
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-test</artifactId>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -52,18 +51,30 @@
 			<artifactId>micrometer-registry-prometheus</artifactId>
 			<!--<version>1.7.1</version>-->
 		</dependency>
-		<dependency>
+		<!-- Key points:
+
+		No JPA Annotations: The code intentionally avoids JPA annotations like @Entity or @Column as those are specific to JPA, not R2DBC.
+			@Table Annotation: The @Table annotation from Spring Data R2DBC maps the entity to the corresponding database table.
+		Id Annotation: The @Id annotation marks the primary key field for the entity.
+	Remember:
+		Include the spring-boot-starter-data-r2dbc dependency in your pom.xml for R2DBC support.
+		Configure the R2DBC connection for your specific database in your Spring Boot application properties.
+		
+		If you include Spring Data JPA, we will get a Bean creation exception-->
+		<!--<dependency>
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-data-jpa</artifactId>
-		</dependency>
-		<dependency>
-			<groupId>org.springframework.boot</groupId>
-			<artifactId>spring-boot-starter-data-r2dbc</artifactId>
-		</dependency>
+		</dependency>-->
+
 		<dependency>
 			<groupId>org.springframework.cloud</groupId>
 			<artifactId>spring-cloud-starter-sleuth</artifactId>
-			<version>3.0.3</version> <!-- Specify the version here -->
+			<version>3.0.3</version>
+		</dependency>
+		<dependency>
+			<groupId>io.projectreactor</groupId>
+			<artifactId>reactor-test</artifactId>
+			<scope>test</scope>
 		</dependency>
 	</dependencies>
 
