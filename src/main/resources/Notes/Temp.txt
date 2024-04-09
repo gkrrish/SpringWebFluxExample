@@ -1,0 +1,11 @@
+Temp
+
+@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
+	public Flux<EmployeeUser> streamAllEmployeeUser() {
+		return employeeUserService.getAllUsers()
+				.flatMap(user -> Flux
+						.zip(Flux.interval(Duration.ofSeconds(2)), Flux.fromStream(Stream.generate(() -> user)))
+						.map(Tuple2::getT2));
+	}
+
+this method is not giving the updated data, from database howt o fix this using the postgres

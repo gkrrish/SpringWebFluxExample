@@ -3,3 +3,8 @@ https://github.com/mertcakmak2/Medium-Stories-Projects/blob/master/webflux/pom.x
 
 
 SpringBoot---->Acuators---->promothous-->Graphana UI or some othere UIs
+
+
+
+--------------------
+I connected Postgres database, and using the event streams API, so here I am unable to fetch the streams of data, is this the problem with RDBMS ? for this reason Mongo db will be used?
