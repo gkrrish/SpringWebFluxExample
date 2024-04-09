@@ -1,6 +1,7 @@
 package com.reactwebflux.service;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
 
@@ -21,6 +22,7 @@ public class EmployeeUserService {
 		return employeeUserRepository.save(user);
 	}
 
+	@Cacheable(value = "employeeUserCache", cacheManager="employeeCacheManager", sync = true)
 	public Flux<EmployeeUser> getAllUsers() {
 		 return employeeUserRepository.findAll().thenMany(employeeUserRepository.findAll());
 	}

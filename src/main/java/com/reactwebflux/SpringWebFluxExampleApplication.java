@@ -2,6 +2,7 @@ package com.reactwebflux;
 
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
+import org.springframework.cache.annotation.EnableCaching;
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.data.r2dbc.config.EnableR2dbcAuditing;
 import org.springframework.data.r2dbc.repository.config.EnableR2dbcRepositories;
@@ -13,6 +14,7 @@ import org.springframework.web.reactive.config.EnableWebFlux;
 @ComponentScan(basePackages = {"com.reactwebflux", "com.reactwebflux.repository"})
 @EnableR2dbcRepositories(considerNestedRepositories = true)//this I kept for auto-refresh of the database, still it is not working.
 @SpringBootApplication
+@EnableCaching
 public class SpringWebFluxExampleApplication {
 
 	public static void main(String[] args) {
