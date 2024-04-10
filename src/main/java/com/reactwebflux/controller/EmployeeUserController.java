@@ -67,7 +67,8 @@ public class EmployeeUserController {
 	public Flux<EmployeeUser> searchEmployeeUser(@RequestParam("name") String name) {
 		return employeeUserService.fetchUsers(name);
 	}
-
+	//This is still not working, if i done database changes in the database or with end points or with other apps,
+	//then updated values are not reflecting in the Stream, this has to fix. for time being I will check later this : 10/04/2024
 	@GetMapping(value = "/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public Flux<EmployeeUser> streamAllEmployeeUser() {
 		return employeeUserService.getAllUsers()
